@@ -1,0 +1,65 @@
+from time import sleep
+listaresult = []
+try1 = False
+n1 = 0
+n2 = 0
+print('=-'*19)
+print('             CALCULADORA')
+print()
+print('''- Digite 2 valores numericos e depois 
+podera escolher a operaçao entre eles''')
+def numero_valido(txt):
+    try2 = False
+    while try2 != True:
+        try:
+            num = int(input(txt))
+            try2 = True
+        except:
+            print('Digite um numero valido, por favor')
+    return num
+print('=-'*19)
+while True:
+    cont = ''
+    print('_ _ _ = ?')
+    n1 = numero_valido('Digite o primeiro numero: ')
+    print(f'{n1} _ _ = ?')
+    n2 = numero_valido('Digite o segundo numero: ')
+    print(f'{n1} _ {n2} = ?')
+    print('Digite:')
+    print('''
+[ 1 ] - Adição, 
+[ 2 ] - Subtração,
+[ 3 ] - Multiplicação, 
+[ 4 ] - Divisão''')
+    sinal = numero_valido('Escolha o sinal que quer usar: ')
+    print('='*20)
+    print('Calculando...')
+    sleep(0.5)
+    if sinal == 1:
+        numero = f'{n1} + {n2} = {n1 + n2}'
+        listaresult.append(numero)
+        print(f'{n1} + {n2} = {n1 + n2}')
+    elif sinal == 2:
+        numero = f'{n1} - {n2} = {n1 - n2}'
+        listaresult.append(numero)
+        print(f'{n1} - {n2} = {n1 - n2}')
+    elif sinal == 3:
+        numero = f'{n1} × {n2} = {n1 * n2}'
+        print(f'{n1} × {n2} = {n1 * n2}')
+        listaresult.append(numero)
+    elif sinal == 4:
+        numero = f'{n1} ÷ {n2} = {n1 / n2}'
+        print(f'{n1} ÷ {n2} = {n1 / n2}')
+        listaresult.append(numero)
+    print('='*20)
+    cont = input('Deseja continuar? [S/N] ').upper()
+    if cont == 'N':
+        break
+print('=-'*25)
+print('HISTORICO DAS CONTAS:')
+for c in range(0, len(listaresult)):
+    sleep(0.5)
+    print(f'- {listaresult[c]}')
+sleep(0.4)
+print('='*30)
+print('Fim do programa')
